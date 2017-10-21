@@ -1,0 +1,19 @@
+.mdl-layout {
+    overflow: visible;
+}
+.mdl-layout__content {
+    overflow: visible;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.mdl-layout__content>*:not(.mdl-layout-spacer) {
+    flex: none;
+}
+.main {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+}
+.center {
+    text-align: center;
+}

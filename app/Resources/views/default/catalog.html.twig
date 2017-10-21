@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Welcome to the main page!</h1>
-    <div>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone center">
+            <h1>Welcome to the main page!</h1>
+        </div>
+    </div>
+    <div class="mdl-grid">
         {% for category in categories %}
-            <div><a href="{{ category.slug }}">{{ category.name }}</a></div>
-            <div>{{ category.short_description }}</div>
+            <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                <div><a href="{{ category.slug }}">{{ category.name }}</a></div>
+                <div>{{ category.short_description }}</div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
