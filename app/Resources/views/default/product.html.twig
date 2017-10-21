@@ -1,17 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>{{ product.name }} page</h1>
-    <div>
-        Category: <a href="{{ category.slug }}">{{ category.name }}</a>
+
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone center">
+            <h1>{{ product.name }}</h1>
+        </div>
     </div>
-    <div>
-        <p>
-            {{ product.description }}
-        </p>
-    </div>
-    <div>
-        <p><b>{{ product.price }}</b></p>
+    <div class="mdl-grid">
+        <div class="img mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone">
+            <img src="/assets/img/product/{{ product.id }}.jpg"/>
+        </div>
+        <div class="mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+            <p>
+                Category: <a href="{{ category.slug }}">{{ category.name }}</a>
+            </p>
+            <p>
+                {{ product.description }}
+            </p>
+            <div class="product--price">
+                {{ product.price }} $
+            </div>
+        </div>
     </div>
 {% endblock %}
 

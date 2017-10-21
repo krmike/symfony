@@ -51,3 +51,8 @@ a {
     background: #008d35;
     color: #ffffff;
 }
+.product--price {
+    color: #005c9a;
+    font-weight: 600;
+    font-size: 1.4rem;
+}
