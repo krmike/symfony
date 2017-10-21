@@ -9,6 +9,9 @@
     <div class="mdl-grid">
         {% for category in categories %}
             <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+                <div class="img">
+                    <img src="/assets/img/category/{{ category.id }}.jpg"/>
+                </div>
                 <div><a href="{{ category.slug }}">{{ category.name }}</a></div>
                 <div>{{ category.short_description }}</div>
             </div>

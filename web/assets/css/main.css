@@ -9,11 +9,45 @@
 .mdl-layout__content>*:not(.mdl-layout-spacer) {
     flex: none;
 }
-.main {
+.main, header {
     width: 100%;
     max-width: 1360px;
     margin: 0 auto;
 }
+header, footer {
+    background: rgba(000,000,000, 0.4);
+}
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.logo img{
+    height: 50px;
+}
 .center {
     text-align: center;
+}
+.product {
+    text-align: center;
+}
+.img>img {
+    max-width: 100%;
+}
+a {
+    color: #005c9a;
+    font-weight: 400;
+    -webkit-transition: 0.4s;
+    -moz-transition: 0.4s ;
+    -ms-transition: 0.4s ;
+    -o-transition: 0.4s ;
+    transition: 0.4s ;
+}
+.mdl-button {
+    background: #005c9a;
+    color: #ffffff;
+}
+.mdl-button:hover {
+    background: #008d35;
+    color: #ffffff;
 }

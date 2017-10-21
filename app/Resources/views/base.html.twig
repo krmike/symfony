@@ -26,7 +26,21 @@
     <![endif]-->
 
         <div class="mdl-layout mdl-js-layout layout-center is-upgraded">
-
+            <header>
+                <div class="mdl-grid">
+                    <div class="header mdl-cell mdl-cell--12-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+                        <div class="logo">
+                            <a href="/"><img src="/assets/img/logo.png"></a>
+                        </div>
+                        <div class="mdl-layout-spacer"></div>
+                        <div>
+                            <a href="/contacts" class="mdl-button mdl-js-button mdl-js-ripple-effect">
+                                Contact us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
             <main class="mdl-layout__content main">
                 <div class="content">
                     {% block body %}{% endblock %}
