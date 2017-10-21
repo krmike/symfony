@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ product.name }} page</h1>
+    <div>
+        Category: <a href="{{ category.slug }}">{{ category.name }}</a>
+    </div>
+    <div>
+        <p>
+            {{ product.description }}
+        </p>
+    </div>
+    <div>
+        <p><b>{{ product.price }}</b></p>
+    </div>
+{% endblock %}
+

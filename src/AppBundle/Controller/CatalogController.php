@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Category;
+use AppBundle\Entity\Product;
 use Doctrine\ORM\EntityNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,9 +22,29 @@ class CatalogController extends Controller
 	 */
 	public function indexAction(Request $request)
 	{
-		// replace this example code with whatever you need
+
+		$categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
 		return $this->render('default/catalog.html.twig', [
-			'title' => "Main page",
+			'title' 		=> "Main page",
+			'meta'			=> 'main page meta description',
+			'categories'	=> $categories
+		]);
+	}
+
+	/**
+	 * @Route("/{slug}.html", name="Product")
+	 */
+	public function productAction($slug)
+	{
+
+		$product = $this->getDoctrine()->getRepository(Product::class)->findOneBySlug($slug);
+		$category = $this->getDoctrine()->getRepository(Category::class)->find($product->category_id);
+
+		return $this->render('default/product.html.twig', [
+			'title' 	=> $product->title,
+			'meta' 		=> $product->meta,
+			'product'	=> $product,
+			'category'	=> $category
 		]);
 	}
 	
@@ -34,17 +55,15 @@ class CatalogController extends Controller
 	{
 
 		$category = $this->getDoctrine()->getRepository(Category::class)->findOneBySlug($slug);
-		$products = [
-			1 => [
-				'name'	=> '1 product'
-			],
-			2 => [
-				'name'	=> '2 product'
+		$products = $this->getDoctrine()->getRepository(Product::class)->findBy(
+			[
+				'category_id'	=> $category->id
 			]
-		];
+		);
 
 		return $this->render('default/category.html.twig', [
 			'title' 	=> $category->title,
+			'meta' 		=> $category->meta,
 			'category'	=> $category,
 			'products'	=> $products
 		]);

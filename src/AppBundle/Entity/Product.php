@@ -15,9 +15,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="category")
+ * @ORM\Table(name="product")
  */
-class Category
+class Product
 {
 	/**
 	 * @ORM\Column(type="integer")
@@ -35,6 +35,12 @@ class Category
 	 * @ORM\Column(type="string", length=100)
 	 */
 	public $slug;
+
+	/**
+	 * @ORM\Column(type="integer")
+	 */
+	public $category_id;
+
 	/**
 	 * @ORM\Column(type="string", length=100)
 	 */
@@ -56,6 +62,11 @@ class Category
 	public $description;
 
 	/**
+	 * @ORM\Column(type="decimal", scale=2)
+	 */
+	public $price;
+
+	/**
 	 * @param $slug
 	 * @return mixed
 	 * @todo 404 exception
@@ -63,13 +74,29 @@ class Category
 	
 	public function findBySlug($slug)
 	{
-		$repository = $this->getDoctrine()->getRepository(Category::class);
+		$repository = $this->getDoctrine()->getRepository(Product::class);
 
-		if (!$category = $repository->findOneBySlug($slug)) {
+		if (!$product = $repository->findOneBySlug($slug)) {
 			throw new NotFoundHttpException('Sorry not existing!'); 
 		}
 
-		return $category;
+		return $product;
+	}
 
+	/**
+	 * @param $slug
+	 * @return mixed
+	 * @todo 404 exception
+	 */
+
+	public function findByCategoryId($category_id)
+	{
+		$repository = $this->getDoctrine()->getRepository(Product::class);
+
+		if (!$product = $repository->findByCategory_id($category_id)) {
+			throw new NotFoundHttpException('Sorry not existing!');
+		}
+
+		return $product;
 	}
 }

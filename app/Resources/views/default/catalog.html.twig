@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>oops lalala</h1>
+    <h1>Welcome to the main page!</h1>
+    <div>
+        {% for category in categories %}
+            <div><a href="{{ category.slug }}">{{ category.name }}</a></div>
+            <div>{{ category.short_description }}</div>
+        {% endfor %}
+    </div>
 {% endblock %}
 
