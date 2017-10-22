@@ -15,6 +15,9 @@
                             $('input[name='+field+']').parent('p').siblings('.error').show();
                         });
                     }
+                    if (res.status == "OK") {
+                        $('.success').text('Your contacts have been successfully saved!');
+                    }
                 }
             });
         });

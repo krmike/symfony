@@ -8,6 +8,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Customer;
 use Doctrine\ORM\EntityNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -41,6 +42,14 @@ class ContactsController extends Controller
 		if (!$phone = $request->request->get('phone')) {
 			$result['fields'][] = 'phone';
 			$result['status'] = 'fail';
+		}
+		if ($result['status'] == 'OK') {
+			$customer = new Customer();
+			$customer->setName($name);
+			$customer->setPhone($phone);
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($customer);
+			$em->flush();
 		}
 		$response = new Response(json_encode($result));
 		$response->headers->set('Content-Type', 'application/json');

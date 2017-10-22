@@ -36,4 +36,13 @@ class Customer
 	 */
 	public $phone;
 
+	public function setName($name)
+	{
+		$this->name = $name;
+	}
+
+	public function setPhone($phone)
+	{
+		$this->phone = $phone;
+	}
 }
