@@ -11,7 +11,7 @@
             Leave us your contacts and we would call you!
         </div>
         <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-            <form id="contact_form">
+            <form action="/ajax/save/customer" id="contact_form" method="post">
                 <div>
                     <b>Name:</b>
                     <p><input type="text" name="name"/></p>
@@ -23,7 +23,7 @@
                     <p class="error">* required field</p>
                 </div>
                 <div>
-                    <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">Contact us!</button>
+                    <button id="save_contacts" type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">Contact us!</button>
                 </div>
             </form>
         </div>

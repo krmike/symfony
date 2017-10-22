@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityNotFoundException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ContactsController extends Controller
 {
@@ -20,10 +21,30 @@ class ContactsController extends Controller
 	 */
 	public function indexAction(Request $request)
 	{
-
 		return $this->render('default/contacts.html.twig', [
 			'title' 		=> "Contact us",
 			'meta'			=> 'contact us meta description'
 		]);
+	}
+	
+	/**
+	 * @Route("/ajax/save/customer", name="SaveCustomer")
+	 */
+	public function saveAction(Request $request)
+	{
+		$result = [];
+		$result['status'] = 'OK';
+		if (!$name = $request->request->get('name')) {
+			$result['fields'][] = 'name';
+			$result['status'] = 'fail';
+		}
+		if (!$phone = $request->request->get('phone')) {
+			$result['fields'][] = 'phone';
+			$result['status'] = 'fail';
+		}
+		$response = new Response(json_encode($result));
+		$response->headers->set('Content-Type', 'application/json');
+
+		return $response;
 	}
 }

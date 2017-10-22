@@ -5,6 +5,9 @@ mainpage:
 contacts:
     path:     /contacts
     defaults: { _controller: 'AppBundle\Controller\ContactsController::indexAction' }
+save_customer:
+    path:     /ajax/save/customer
+    defaults: { _controller: 'AppBundle\Controller\ContactsController::saveAction' }
 product:
     path:     /{slug}.html
     defaults: { _controller: 'AppBundle\Controller\CatalogController::productAction' }
