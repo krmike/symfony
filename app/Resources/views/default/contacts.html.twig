@@ -3,7 +3,29 @@
 {% block body %}
     <div class="mdl-grid">
         <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone center">
-            <h1>contact us!</h1>
+            <h1>Contact us!</h1>
+        </div>
+    </div>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+            Leave us your contacts and we would call you!
+        </div>
+        <div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+            <form id="contact_form">
+                <div>
+                    <b>Name:</b>
+                    <p><input type="text" name="name"/></p>
+                    <p class="error">* required field</p>
+                </div>
+                <div>
+                    <b>Phone:</b>
+                    <p><input type="text" name="phone" class="phone"/></p>
+                    <p class="error">* required field</p>
+                </div>
+                <div>
+                    <button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect">Contact us!</button>
+                </div>
+            </form>
         </div>
     </div>
 {% endblock %}

@@ -56,3 +56,7 @@ a {
     font-weight: 600;
     font-size: 1.4rem;
 }
+.error {
+    color: #ff5050;
+    display: none;
+}
